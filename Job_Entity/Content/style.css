@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+2|Baloo+Thambi+2&display=swap');
+@import url(header-style.css);
+
+*
+{
+    box-sizing: border-box;
+    font-family: 'Baloo 2', cursive;
+    margin: 0;
+    padding: 0
+}
+
+.container
+{
+    padding: 0 7%;
+}
+
+.inpts
+{
+    width:100%;
+}
+
+
+@media (min-width: 768px) 
+{
+    .col-md-2 
+    {
+        flex: 0 0 16.666667%;
+        max-width: 100% !important ;
+    }
+}

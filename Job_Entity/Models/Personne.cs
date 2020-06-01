@@ -18,13 +18,7 @@ namespace Job_Entity.Models
         public string Genre { get; set; }
         public string Competence { get; set; }
 
-
         public virtual Utilisateur Utilisateur { get; set; }
-
-
         public virtual ICollection<Profession> Professions { set; get; }
-
-
-
     }
 }
