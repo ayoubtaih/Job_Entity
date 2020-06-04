@@ -15,7 +15,7 @@ namespace Job_Entity.Models
         public string Spesialite { get; set; }
 
         
-        public virtual Domaine Domaine { get; set; }
+        public virtual Categorie Categorie { get; set; }
 
         public virtual ICollection<Personne> Personnes { set; get; }
 

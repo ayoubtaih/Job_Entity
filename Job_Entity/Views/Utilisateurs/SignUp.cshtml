@@ -1,0 +1,121 @@
+﻿@model Job_Entity.Models.Utilisateur
+
+@{
+    ViewBag.Title = "signUp";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal po" id="loginModal" tabindex="-1">
+
+        <div class="modal-dialog" style="width:300px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form action="/" method="post" class="formCont">
+                        <div class="form-group">
+                            <label for="Username" style="font-size:18px">
+                                <i class="zmdi zmdi-account material-icons-name"></i>
+                            </label>
+                            <input type="text" name="Username" placeholder="Username" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="zmdi zmdi-email"></i>
+                            </label>
+                            <input type="email" name="email" placeholder="Email" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="UserType">
+                                <i class="zmdi zmdi-account-box"></i>
+                            </label>
+                            <select name="UserType">
+                                <option value="idvidual">Idvidual</option>
+                                <option value="entreprise">Entreprise</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mdp">
+                                <i class="zmdi zmdi-lock"></i>
+                            </label>
+                            <input type="password" name="mdp" placeholder="Mot de Passe" />
+                        </div>
+
+                        <div class="form-group form-button">
+                            <input class="form-submit" type="submit" name="btnSub" value="Submit" />
+                            <a href="#" >Go to main Page</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="mainCont">
+
+        <div class="divInfo">
+
+            <h2 class="titre">Sign up</h2>
+
+
+            <form action="/" method="post" class="formCont">
+                <div class="form-group">
+                    <label for="Username" style="font-size:18px">
+                        <i class="zmdi zmdi-account material-icons-name"></i>
+                    </label>
+                    <input type="text" name="Username" placeholder="Username" />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">
+                        <i class="zmdi zmdi-email"></i>
+                    </label>
+                    <input type="email" name="email" placeholder="Email" />
+                </div>
+
+                <div class="form-group">
+                    <label for="UserType">
+                        <i class="zmdi zmdi-account-box"></i>
+                    </label>
+                    <select name="UserType">
+                        <option value="idvidual">Idvidual</option>
+                        <option value="entreprise">Entreprise</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mdp">
+                        <i class="zmdi zmdi-lock"></i>
+                    </label>
+                    <input type="password" name="mdp" placeholder="Mot de Passe" />
+                </div>
+
+                <div class="form-group form-button">
+                    <input class="form-submit" type="submit" name="btnSub" value="Submit" />
+                </div>
+
+            </form>
+        </div>
+
+        <div class="divPic">
+
+            <figure><img src="~/img/signup-image.jpg" alt="sing up image"></figure>
+            <a href="#" class="membre">j'ai déja un Compte</a>
+        </div>
+
+    </div>
+
+}
+
+

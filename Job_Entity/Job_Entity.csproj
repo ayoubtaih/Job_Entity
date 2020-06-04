@@ -125,15 +125,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\DomainesController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PersonnesController.cs" />
-    <Compile Include="Controllers\ProfessionsController.cs" />
     <Compile Include="Controllers\UtilisateursController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Domaine.cs" />
+    <Compile Include="Models\Categorie.cs" />
+    <Compile Include="Models\Entreprise.cs" />
     <Compile Include="Models\Job_Context.cs" />
     <Compile Include="Models\Personne.cs" />
     <Compile Include="Models\Profession.cs" />
@@ -143,11 +140,15 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\header-style.css" />
+    <Content Include="Content\signup.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="icon\css\material-design-iconic-font.css" />
+    <Content Include="icon\css\material-design-iconic-font.min.css" />
+    <Content Include="icon\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="img\logo.png" />
     <Content Include="img\signin-image.jpg" />
     <Content Include="img\signup-image.jpg" />
@@ -191,29 +192,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Personnes\Create.cshtml" />
-    <Content Include="Views\Personnes\Delete.cshtml" />
-    <Content Include="Views\Personnes\Details.cshtml" />
-    <Content Include="Views\Personnes\Edit.cshtml" />
-    <Content Include="Views\Personnes\Index.cshtml" />
-    <Content Include="Views\Utilisateurs\Create.cshtml" />
-    <Content Include="Views\Utilisateurs\Delete.cshtml" />
-    <Content Include="Views\Utilisateurs\Details.cshtml" />
-    <Content Include="Views\Utilisateurs\Edit.cshtml" />
-    <Content Include="Views\Utilisateurs\Index.cshtml" />
-    <Content Include="Views\Domaines\Create.cshtml" />
-    <Content Include="Views\Domaines\Delete.cshtml" />
-    <Content Include="Views\Domaines\Details.cshtml" />
-    <Content Include="Views\Domaines\Edit.cshtml" />
-    <Content Include="Views\Domaines\Index.cshtml" />
-    <Content Include="Views\Professions\Create.cshtml" />
-    <Content Include="Views\Professions\Delete.cshtml" />
-    <Content Include="Views\Professions\Details.cshtml" />
-    <Content Include="Views\Professions\Edit.cshtml" />
-    <Content Include="Views\Professions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -291,6 +269,10 @@
     <Content Include="Login\fonts\poppins\roboto-condensed-v16-latin-regular.ttf" />
     <Content Include="Login\fonts\poppins\roboto-condensed-v16-latin-regular.woff" />
     <Content Include="Login\fonts\poppins\roboto-condensed-v16-latin-regular.woff2" />
+    <Content Include="icon\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="icon\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="icon\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="icon\fonts\Material-Design-Iconic-Font.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_mainLayout.cshtml" />
@@ -307,6 +289,14 @@
     <Content Include="Scripts\Account\SendCode.cshtml" />
     <Content Include="Scripts\Account\VerifyCode.cshtml" />
     <Content Include="Scripts\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Utilisateurs\SignUp.cshtml" />
+    <Content Include="Views\Utilisateurs\Delete.cshtml" />
+    <Content Include="Views\Utilisateurs\Details.cshtml" />
+    <Content Include="Views\Utilisateurs\Edit.cshtml" />
+    <Content Include="Views\Utilisateurs\Index.cshtml" />
+    <Content Include="Views\Utilisateurs\Create.cshtml" />
+    <Content Include="Views\Utilisateurs\atata.cshtml" />
+    <Content Include="Views\Utilisateurs\haha.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

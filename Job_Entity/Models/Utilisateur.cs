@@ -10,13 +10,19 @@ namespace Job_Entity.Models
     public class Utilisateur
     {
         [Key]
-        [ForeignKey("Personne")]
-        public int IDUtilisateur{ get; set; }
-        public string Login { get; set; }
-        public string MotPasse{ get; set; }
-        public DateTime DernierVisit { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IDUtilisateur{get; set;}
 
-       
-        public virtual Personne Personne{ get; set; }
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string email {get; set;}
+
+        [DataType(DataType.Password)]
+        public string mdp{get; set;}
+
+        public string UserType { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime DernierVisit {get; set;}
+
     }
 }

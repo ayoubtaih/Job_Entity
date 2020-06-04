@@ -6,12 +6,11 @@ using System.Web;
 
 namespace Job_Entity.Models
 {
-    public class Domaine
+    public class Categorie
     {
         [Key]
-        public int IDdomaine{ get; set; }
-        public string Libelle{ get; set; }
-
-        public virtual ICollection<Profession> Professions{ get; set; }
+        public int idCat { get; set; } 
+        
+        public virtual ICollection<Profession> Professions { set; get; }
     }
 }

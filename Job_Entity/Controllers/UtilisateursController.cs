@@ -17,8 +17,12 @@ namespace Job_Entity.Controllers
         // GET: Utilisateurs
         public ActionResult Index()
         {
-            var utilisateurs = db.Utilisateurs.Include(u => u.Personne);
-            return View(utilisateurs.ToList());
+            return View(db.Utilisateurs.ToList());
+        }
+
+        public ActionResult haha()
+        {
+            return View();
         }
 
         // GET: Utilisateurs/Details/5
@@ -37,27 +41,45 @@ namespace Job_Entity.Controllers
         }
 
         // GET: Utilisateurs/Create
-        public ActionResult Create()
+        public ActionResult SignUp()
         {
-            ViewBag.IDUtilisateur = new SelectList(db.Personnes, "IDPersonne", "Nom");
             return View();
         }
 
         // POST: Utilisateurs/Create
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IDUtilisateur,Login,MotPasse,DernierVisit")] Utilisateur utilisateur)
+        public ActionResult SignUp([Bind(Include = "email,UserType,MotPasse")] Utilisateur utilisateur)
         {
             if (ModelState.IsValid)
             {
-                db.Utilisateurs.Add(utilisateur);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (!db.Utilisateurs.Any(x => x.email.Equals(utilisateur.email)))
+                {
+                    utilisateur.DernierVisit = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                    db.Utilisateurs.Add(utilisateur);
+                    db.SaveChanges();
+
+                    if (utilisateur.UserType == "idvidual")
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    if (utilisateur.UserType == "entreprise")
+                    {
+                        return RedirectToAction("atata");
+                    }
+
+
+                }
+                else
+                {
+                    Response.Write(@"<script language='javascript'>alert('Message: \n" + "Email deja exist!" + " .');</script>");
+                }
+
+                
             }
 
-            ViewBag.IDUtilisateur = new SelectList(db.Personnes, "IDPersonne", "Nom", utilisateur.IDUtilisateur);
             return View(utilisateur);
         }
 
@@ -73,16 +95,15 @@ namespace Job_Entity.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IDUtilisateur = new SelectList(db.Personnes, "IDPersonne", "Nom", utilisateur.IDUtilisateur);
             return View(utilisateur);
         }
 
         // POST: Utilisateurs/Edit/5
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IDUtilisateur,Login,MotPasse,DernierVisit")] Utilisateur utilisateur)
+        public ActionResult Edit([Bind(Include = "IDUtilisateur,email,MotPasse,UserType,DernierVisit")] Utilisateur utilisateur)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +111,6 @@ namespace Job_Entity.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IDUtilisateur = new SelectList(db.Personnes, "IDPersonne", "Nom", utilisateur.IDUtilisateur);
             return View(utilisateur);
         }
 

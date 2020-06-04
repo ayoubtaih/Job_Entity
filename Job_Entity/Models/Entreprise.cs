@@ -7,19 +7,23 @@ using System.Web;
 
 namespace Job_Entity.Models
 {
-    public class Personne
+    public class Entreprise
     {
         [Key]
         public int id { get; set; }
 
-        public string nom { get; set; }
-        public string prenom { get; set; }
-        public DateTime dateNaissance { get; set; }
-        public string genre { get; set; }
-        public int tel { get; set; }
+        public string name { get; set; }
+
+        public string adresse { get; set; }
+
         public string ville { get; set; }
+
         public string pays { get; set; }
-        public string competence { get; set; }
+
+        public int tel { get; set; }
+
+        [ForeignKey("Categorie")]
+        public int idCat { get; set; }
 
     }
 }
