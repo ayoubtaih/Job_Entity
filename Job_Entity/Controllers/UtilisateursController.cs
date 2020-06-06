@@ -55,13 +55,25 @@ namespace Job_Entity.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (!db.Utilisateurs.Any(x => x.email.Equals(utilisateur.email)))
+
+
+
+                utilisateur.DernierVisit = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+                db.Utilisateurs.Add(utilisateur);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+
+
+                /*if (!db.Utilisateurs.Any(x => x.email.Equals(utilisateur.email)))
                 {
                     utilisateur.DernierVisit = Convert.ToDateTime(DateTime.Now.ToShortDateString());
                     db.Utilisateurs.Add(utilisateur);
                     db.SaveChanges();
 
-                    if (utilisateur.UserType == "idvidual")
+                    return RedirectToAction("Index");
+
+                    /*if (utilisateur.UserType == "idvidual")
                     {
                         return RedirectToAction("Index");
                     }
@@ -75,7 +87,7 @@ namespace Job_Entity.Controllers
                 else
                 {
                     Response.Write(@"<script language='javascript'>alert('Message: \n" + "Email deja exist!" + " .');</script>");
-                }
+                }*/
 
                 
             }
